@@ -4,31 +4,30 @@
  * and open the template in the editor.
  */
 package Juego;
-
 import javafx.scene.image.Image;
-
 /**
  *
- * @author usuario
+ * @author rodri
  */
-public class Pared extends Obstaculo{
+public class Puas extends Obstaculo {
     private int width;
     private int height;
-
-    public Pared(int width, int height, int posX, int posY) {
+    public Puas(int width, int height, int posX, int posY) {
         super(posX, posY);
-        textura=new Image ("Imagenes/textura2.jpg");
-        this.width = width;
-        this.height = height;
-        
+        textura=new Image("Imagenes/puas.jpg");
+        this.height =height ; 
+         this.width =width ; 
     }
+
     public int getWidth() {
         return width;
     }
+
     public int getHeight() {
         return height;
     }
-    
+
     
     
 }
+
