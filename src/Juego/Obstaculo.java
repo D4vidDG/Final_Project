@@ -29,5 +29,13 @@ public class Obstaculo {
     public int getPosY() {
         return posY;
     }
+    public Image getTextura() {
+        return textura;
+    }
+
+    public void setTextura(Image textura) {
+        this.textura = textura;
+    }
+    
     }
     

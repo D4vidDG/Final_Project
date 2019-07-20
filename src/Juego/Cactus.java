@@ -15,7 +15,7 @@ public class Cactus extends Obstaculo {
     private int radio;
     public Cactus(int posX, int posY,int radio) {
         super(posX, posY);
-        textura=new Image("cactus.jpg");
+        textura=new Image("Imagenes/cactus.jpg");
         this.radio=radio;
     }
 
