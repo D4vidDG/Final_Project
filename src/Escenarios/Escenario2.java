@@ -21,7 +21,7 @@ import javafx.scene.paint.Color;
  * @author rodri
  */
 
-    import Juego.Cactus;
+import Juego.Cactus;
 import Juego.Obstaculo;
 import Juego.Pared;
 import Juego.Puas;
@@ -33,6 +33,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.*;
 
 /**
@@ -44,11 +45,11 @@ private Pane panel;
 private Canvas tablero;
 private GraphicsContext lapiz;
 private Scene escena;
-private Image suelo=new Image ("textura2.jpg");
+private Image suelo=new Image ("Imagenes/suelo_guerra2.jpeg");
 private Obstaculo [] obstaculos;
     public Escenario2() {
     this.panel = new Pane();
-    this.tablero = new Canvas(600,600);
+    this.tablero = new Canvas(626,417);
     panel.getChildren().add(tablero);
     this.lapiz = 
               tablero.getGraphicsContext2D();
@@ -59,26 +60,29 @@ private Obstaculo [] obstaculos;
     lapiz.fillRect(0,407,626,10);
     lapiz.fillRect(10,0,616,10);
     this.obstaculos=new Obstaculo[13];
-    obstaculos[1]=new Pared (80,20,85,90);
-    obstaculos[2]=new Pared (20,65,165,45);
-    obstaculos[3]=new Pared (80,20,95,260);
-    obstaculos[4]=new Pared (20,65,175,260);
-    obstaculos[5]=new Pared (20,65,400,10);
-    obstaculos[6]=new Pared(80,20,400,55);
-    obstaculos[7]=new Pared (20,65,450,300);
-    obstaculos[8]=new Pared (80,20,450,300);
-    obstaculos[9]=new Pared (20,65,300,320);
-    obstaculos[10]=new Pared (80,20,300,100);
-    obstaculos[11]=new Pared (50,50,400,240);
-    obstaculos[12]=new Puas ( 30, 100,500, 120);
-    obstaculos[13]=new Puas ( 30, 80,190, 150);
+    obstaculos[0]=new Pared (80,20,85,90);
+    obstaculos[1]=new Pared (20,65,165,45);
+    obstaculos[2]=new Pared (80,20,95,260);
+    obstaculos[3]=new Pared (20,65,175,260);
+    obstaculos[4]=new Pared (20,65,400,10);
+    obstaculos[5]=new Pared(80,20,400,55);
+    obstaculos[6]=new Pared (20,65,450,300);
+    obstaculos[7]=new Pared (80,20,450,300);
+    obstaculos[8]=new Pared (20,65,300,320);
+    obstaculos[9]=new Pared (80,20,300,100);
+    obstaculos[10]=new Pared (50,50,400,240);
+    obstaculos[11]=new Puas ( 30, 100,500, 120);
+    obstaculos[12]=new Puas ( 30, 80,190, 150);
     for(Obstaculo obstaculo:this.obstaculos){
         if(obstaculo instanceof Pared){
+        lapiz.setFill(new ImagePattern (obstaculo.getTextura()));
         lapiz.fillRect(obstaculo.getPosX(),obstaculo.getPosY(),((Pared) obstaculo).getWidth(), ((Pared) obstaculo).getHeight());
-    }if(obstaculo instanceof Cactus){
-        lapiz.fillOval(obstaculo.getPosX(),obstaculo.getPosY(),((Cactus) obstaculo).getRadio(),((Cactus) obstaculo).getRadio());
+    }if(obstaculo instanceof Puas){
+        lapiz.setFill(new ImagePattern (obstaculo.getTextura()));
+        lapiz.fillOval(obstaculo.getPosX(),obstaculo.getPosY(),((Puas) obstaculo).getWidth(),((Puas) obstaculo).getHeight());
     }
     }
+    this.escena=new Scene(panel,626,417);
     }
 Shape obstaculoA = new Rectangle(0,0,10,616);
 Shape obstaculoB = new Rectangle(616,0,10,407);

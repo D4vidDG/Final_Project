@@ -27,6 +27,7 @@ public class Puas extends Obstaculo {
         return height;
     }
 
+ 
     
     
 }

@@ -12,8 +12,5 @@ import java.util.*;
  * @author usuario
  */
 public class NuevoJuego {
-    private Tanque [] tanques;
-    private int [] puntuaciones;
-    
     
 }
