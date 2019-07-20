@@ -17,10 +17,11 @@ public class Obstaculo {
     protected int posX;
     protected int posY;
     protected Image textura;
-
+    private boolean estado;
     public Obstaculo(int posX, int posY) {
         this.posX = posX;
-        this.posY = posY;    
+        this.posY = posY;
+        this.estado = true;
     }
 
     public int getPosX() {
